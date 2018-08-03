@@ -1,0 +1,29 @@
+.skin-trans .main-header .navbar {
+    background-color: #00000000;
+}
+.banner-center {
+    height: 100vh;
+    margin: -65px -15px 0px -15px; 
+    background-image: url("../img/736014.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+}
+    .findhouse {
+        text-align: center;
+        color: white;
+    }
+    .findhouse h1 {
+        text-shadow: 10px;
+        font-size: 52px;
+        margin: 33% 0% 1% 0%;
+        text-shadow: 0px 5px 5px #000000;
+    }
+
+#mision {
+    margin-bottom: 23px;
+}
