@@ -1,5 +1,13 @@
 @extends('layouts.admin3')
 
+@section('stylecustom')
+<style>
+    .skin-trans .main-header .navbar {
+        background-color: #00000000;
+    }
+</style>
+@endsection
+
 @section('content')
 <div class="banner-center">
     <div class="container">

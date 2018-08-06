@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             TipoUsuariosSeeder::class,
             TipoPropiedadesSeeder::class,
             UsuariosSeeder::class,
-            DocumentosSeeder::class
+            DocumentosSeeder::class,
+            TipoContratoSeeder::class
         ]);
     }
 }

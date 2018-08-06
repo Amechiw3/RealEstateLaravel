@@ -12,6 +12,7 @@ class Propiedad extends Model
     protected $primaryKey = "propiedadid";
 
     protected $fillable = [
+        'tipocontrato',
         'tipopropiedad',
         'usuarioid',
         'propiedadfecha',
@@ -29,4 +30,24 @@ class Propiedad extends Model
         'imagen',
         'informacionadic'
     ];
+
+    public function paises() {
+        return $this->belongsTo('realestate\Pais', 'pais');
+    }
+
+    public function estados() {
+        return $this->belongsTo('realestate\Estado', 'estado');
+    }
+
+    public function ciudades() {
+        return $this->belongsTo('realestate\Ciudad', 'ciudad');
+    }
+
+    public function tipospropiedades() {
+        return $this->belongsTo('realestate\TipoPropiedad', 'tipopropiedad');
+    }
+
+    public function tiposcontratos() {
+        return $this->belongsTo('realestate\TipoPropiedad', 'tipocontrato');
+    }
 }

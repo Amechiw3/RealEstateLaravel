@@ -20,20 +20,23 @@
         
         <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="{{ asset('css/_all-skins.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         
         <link rel="apple-touch-icon" href="{{ asset('img/apple-touch-icon.png') }}">
-        <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">        
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        @yield('stylecustom')
+        <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
+
     </head>
   
-    <body class="hold-transition skin-red skin-trans layout-top-nav">
+    <body class="hold-transition skin-red layout-top-nav">
         <div class="wrapper">
             <header class="main-header">
                 <nav class="navbar navbar-static-top" role="navigation">
                     <div class="container">
                         <div class="navbar-header">
-                            <a href="#" class="navbar-brand"><b>Real</b>Estate</a>                            
+                            <a href="#" class="navbar-brand"><b>Real</b>Estate</a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                                <i class="fa fa-bars"></i>
+                            </button>
                         </div>
                         <div class="navbar-custom-menu">
                             <ul class="nav navbar-nav">

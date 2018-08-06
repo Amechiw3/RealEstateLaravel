@@ -20,4 +20,7 @@ class Ciudad extends Model
         return $this->belongsTo('realestate\Estado');
     }
 
+    public function propiedades() {
+        return $this->hasMany('realestate\Propiedad', 'ciudadid');
+    }
 }

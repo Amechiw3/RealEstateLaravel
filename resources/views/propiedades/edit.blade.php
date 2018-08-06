@@ -21,7 +21,7 @@
         {{Form::token()}}
         
         <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label for="tipopropiedad">Tipo de Propiedad</label>
                         <select name="tipopropiedad" id="tipopropiedad" class="form-control">
@@ -31,7 +31,17 @@
                         </select>    
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
+                <div class="form-group">
+                    <label for="tipocontrato">Tipo de Contrato</label>
+                    <select name="tipocontrato" id="tipocontrato" class="form-control">
+                        @foreach ($tiposcontratos as $tcon)
+                            <option value="{{ $tcon->tipocontratoid }}" @if($tcon->tipocontratoid == $propiedad->tipocontrato) {{ "selected" }} @endif>{{ $tcon->tipocontrato }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+                <div class="col-md-4">
                     <div class="form-group">
                         <label for="propiedadfecha">Fecha de construcción</label>
                         {{Form::date('propiedadfecha', $propiedad->propiedadfecha, ['id'=>'propiedadfecha','class'=>'form-control'])}}

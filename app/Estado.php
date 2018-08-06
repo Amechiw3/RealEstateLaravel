@@ -23,4 +23,8 @@ class Estado extends Model
     public function ciudades() {
         return $this->hasMany('realestate\Ciudad', 'estado', 'estadoid');
     }
+
+    public function propiedades() {
+        return $this->hasMany('realestate\Propiedad', 'estadoid');
+    }
 }

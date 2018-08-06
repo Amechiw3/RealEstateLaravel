@@ -21,10 +21,12 @@ class CreateReservasTable extends Migration
             
             $table->integer('usuarioid')->unsigned();
             $table->foreign('usuarioid')->references('id')->on('users')->onDelete('cascade');
-            
-            $table->integer('tiporeserva');
+            $table->enum('tipopago', ['Contado', 'Credito']);
+
+            $table->enum('tiporeserva', ['Compra', 'Renta']);
             $table->date('check_in');
             $table->date('check_out');
+
             $table->timestamps();
         });
     }

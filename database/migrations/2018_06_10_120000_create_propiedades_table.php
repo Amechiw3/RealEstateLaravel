@@ -15,6 +15,9 @@ class CreatePropiedadesTable extends Migration
     {
         Schema::create('propiedades', function (Blueprint $table) {
             $table->increments('propiedadid');
+
+            $table->integer('tipocontrato')->unsigned();
+            $table->foreign('tipocontrato')->references('tipocontratoid')->on('tiposcontratos')->onDelete('cascade');
             
             $table->integer('tipopropiedad')->unsigned();
             $table->foreign('tipopropiedad')->references('tipopropiedadid')->on('tipospropiedades')->onDelete('cascade');

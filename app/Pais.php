@@ -18,5 +18,9 @@ class Pais extends Model
     public function estados() {
         return $this->hasMany('realestate\Estado', 'pais', 'paisid');
     }
+
+    public function propiedades() {
+        return $this->hasMany('realestate\Propiedad', 'paisid');
+    }
     
 }

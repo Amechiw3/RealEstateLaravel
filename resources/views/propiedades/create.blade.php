@@ -21,7 +21,7 @@
         {{Form::token()}}
         
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label for="tipopropiedad">Tipo de Propiedad</label>
                     <select name="tipopropiedad" id="tipopropiedad" class="form-control">
@@ -31,7 +31,17 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="tipocontrato">Tipo de Contrato</label>
+                    <select name="tipocontrato" id="tipocontrato" class="form-control">
+                        @foreach ($tiposcontratos as $tcon)
+                            <option value="{{ $tcon->tipocontratoid }}">{{ $tcon->tipocontrato }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
                 <div class="form-group">
                     <label for="propiedadfecha">Fecha de construcción</label>
                     {{Form::date('propiedadfecha', \Carbon\Carbon::now(), ['id'=>'propiedadfecha','class'=>'form-control'])}}
@@ -72,19 +82,19 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="calle">Calle</label>
-                    {{Form::text('calle', 'Introduce la calle', ['id'=>'calle','class'=>'form-control'])}}
+                    {{Form::text('calle', '', ['id'=>'calle', 'placeholder' => 'Introduce la calle', 'class'=>'form-control'])}}
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="colonia">Colonia</label>
-                    {{Form::text('colonia', 'Introduce la colonia', ['id'=>'colonia','class'=>'form-control'])}}
+                    {{Form::text('colonia', '', ['id'=>'colonia', 'placeholder' => 'Introduce la colonia', 'class'=>'form-control'])}}
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="codigopostal">Codigo Postal</label>
-                    {{Form::text('codigopostal', 'Introduce el codigo postal', ['id'=>'codigopostal','class'=>'form-control'])}}
+                    {{Form::text('codigopostal', '', ['id'=>'codigopostal', 'placeholder' => 'Introduce el codigo postal', 'class'=>'form-control'])}}
                 </div>
             </div>
         </div>
@@ -97,13 +107,13 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="latitud">Latitud</label>
-                    <input class="form-control" type="text" name="latitud" id="latitud" readonly>
+                    <input class="form-control form-control-sm" type="text" name="latitud" id="latitud" readonly>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="longitud">Longitud</label>
-                    <input class="form-control" type="text" name="longitud" id="longitud" readonly>
+                    <input class="form-control form-control-sm" type="text" name="longitud" id="longitud" readonly>
                 </div>
             </div>
         </div>

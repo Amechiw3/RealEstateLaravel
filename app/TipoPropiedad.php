@@ -15,4 +15,9 @@ class TipoPropiedad extends Model
         'nombre',
         'descripcion'
     ];
+
+    public function propiedades() {
+        return $this->hasMany('realestate\Propiedad', 'tipopropiedadid');
+    }
+
 }

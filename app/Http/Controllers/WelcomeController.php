@@ -5,6 +5,8 @@ namespace realestate\Http\Controllers;
 use Illuminate\Http\Request;
 
 use FarhanWazir\GoogleMaps\GMaps;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
 use realestate\Propiedad;
 use DB;
 
@@ -48,7 +50,7 @@ class WelcomeController extends Controller
         $marker = array();
         foreach ($propiedades as $prop) {
             $marker['position'] = $prop->latitude .", ". $prop->longitude;
-            $marker['infowindow_content'] = $prop->calle.', '.$prop->colonia.', '.$prop->ciudad.', '.$prop->estado.', '.$prop->pais. '<br><br><center><img width="192" src="'. asset("uploads/propiedades/". $prop->imagen). '" alt=""></center>';
+            $marker['infowindow_content'] = $prop->calle.', '.$prop->colonia.', '.$prop->ciudad.', '.$prop->estado.', '.$prop->pais. '<br><br><center><img width="192" src="'. asset("uploads/propiedades/". $prop->imagen). '" alt=""></center><br><a href="'. URL::action('PropiedadesController@show', $prop->propiedadid) .'" class="btn btn-success btn-block">VER</a>';
             $gmaps->add_marker($marker);
         }
 

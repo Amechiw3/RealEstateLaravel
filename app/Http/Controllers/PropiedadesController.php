@@ -11,6 +11,7 @@ use realestate\Pais;
 use realestate\Estado;
 use realestate\Ciudad;
 use realestate\TipoPropiedad;
+use realestate\TipoContrato;
 use realestate\Propiedad;
 use realestate\PropiedadImagen;
 use realestate\Documento;
@@ -71,6 +72,7 @@ class PropiedadesController extends Controller
             'estados' => Estado::all()->sortBy('estado'),
             'ciudades' => Ciudad::all()->sortBy('ciudad'),
             'tipospropiedades' => TipoPropiedad::all()->sortBy('nombre'),
+            'tiposcontratos' => TipoContrato::all(),
             'maps' => $map
         ]);
     }
@@ -88,6 +90,7 @@ class PropiedadesController extends Controller
             $propiedad->imagen = $filename;
         }
         $propiedad->tipopropiedad = $request->get('tipopropiedad');
+        $propiedad->tipocontrato = $request->get('tipocontrato');
         $propiedad->usuarioid = Auth::id();
         $propiedad->propiedadfecha = $request->get('propiedadfecha');
         $propiedad->pais = $request->get('pais');
@@ -110,7 +113,10 @@ class PropiedadesController extends Controller
     }
 
     public function show($id) {
-        return view('propiedades/ciudad.show', ['ciudad'=>Ciudad::findOrFail($id)]);
+        return view('propiedades.show', [
+            'propiedad'=>Propiedad::findOrFail($id),
+            'imagenes' => PropiedadImagen::all()->where('propiedadid', '=', $id)
+        ]);
     }
 
     public function edit($id) {
@@ -137,6 +143,7 @@ class PropiedadesController extends Controller
             'estados' => Estado::all()->sortBy('estado'),
             'ciudades' => Ciudad::all()->sortBy('ciudad'),
             'tipospropiedades' => TipoPropiedad::all()->sortBy('nombre'),
+            'tiposcontratos' => TipoContrato::all(),
             'propiedad' => $propiedad,
             'maps' => $map
         ]);
